@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smiluxe - Dental Care You Can Trust</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                blue: '#2B4DFF', // Vibrant Royal Blue
+                darkBlue: '#1a3091', // Deeper blue for text/footer
+                lime: '#D2F54C', // The specific lime green
+                cream: '#FFF9F0', // Beige background
+                mint: '#F0FDF4', // Light green bg
+                pink: '#FFF5F5', // Light pink bg
+              }
+            },
+            borderRadius: {
+              '4xl': '2.5rem',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+      body { -webkit-font-smoothing: antialiased; }
+      
+      /* Custom Button Style */
+      .btn-primary {
+        background-color: #D2F54C;
+        color: #1a3091;
+        box-shadow: 0 4px 14px 0 rgba(210, 245, 76, 0.39);
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(210, 245, 76, 0.5);
+      }
+
+      /* Image Card Styles */
+      .hero-card-rotate-left {
+        transform: rotate(-6deg);
+        transition: transform 0.4s ease;
+      }
+      .hero-card-rotate-left:hover {
+        transform: rotate(0deg) scale(1.02);
+        z-index: 20;
+      }
+      .hero-card-rotate-right {
+        transform: rotate(6deg);
+        transition: transform 0.4s ease;
+      }
+      .hero-card-rotate-right:hover {
+        transform: rotate(0deg) scale(1.02);
+        z-index: 20;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-cream font-sans text-gray-900">
+    
+    <!-- Navbar -->
+    <nav class="absolute top-0 left-0 right-0 z-50 text-white py-6 px-4 md:px-8 max-w-7xl mx-auto">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+            <div class="bg-white text-brand-blue p-1 rounded-full">
+                <i data-lucide="smile" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-bold tracking-tight">Smiluxe</span>
+        </div>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-blue-100">
+          <a href="#" class="hover:text-white transition-colors">Home</a>
+          <a href="#about" class="hover:text-white transition-colors">About Us</a>
+          <a href="#services" class="hover:text-white transition-colors">Service</a>
+          <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+          <a href="#team" class="hover:text-white transition-colors">Team</a>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="hidden md:block">
+          <button class="bg-white text-brand-blue px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-gray-100 transition-colors">
+            Contact us <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-white">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-brand-blue p-6 shadow-xl rounded-b-2xl mt-2 border-t border-blue-600">
+        <div class="flex flex-col gap-4 text-center">
+          <a href="#" class="text-white font-medium mobile-link">Home</a>
+          <a href="#about" class="text-blue-100 font-medium mobile-link">About Us</a>
+          <a href="#services" class="text-blue-100 font-medium mobile-link">Service</a>
+          <a href="#team" class="text-blue-100 font-medium mobile-link">Team</a>
+          <button class="bg-white text-brand-blue px-6 py-3 rounded-full font-bold w-full">
+              Contact us
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-brand-blue min-h-[100vh] relative overflow-hidden rounded-b-[3rem] pb-20 md:pb-32">
+      <div class="max-w-7xl mx-auto px-4 pt-32 md:pt-40 flex flex-col items-center text-center">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-blue-600/50 border border-blue-400/30 text-blue-100 px-4 py-1.5 rounded-full text-xs font-bold mb-8 backdrop-blur-sm tracking-wide">
+          <i data-lucide="shield-check" class="w-3 h-3 text-brand-lime"></i>
+          #1 DENTAL CLINIC IN U.K.
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+          Comfort-First Dental Care<br />
+          You Can Trust
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-blue-200 text-sm md:text-base max-w-xl mb-10 font-medium leading-relaxed">
+          Gentle, personalized treatments focused on comfort,<br class="hidden md:block"/>
+          quality, and your lasting smile.
+        </p>
+
+        <!-- CTA -->
+        <div class="flex flex-col items-center gap-4">
+            <button class="btn-primary px-8 py-4 rounded-full font-bold text-sm tracking-wide">
+            Book Appointment
+            </button>
+            <p class="text-blue-300/80 text-xs font-medium tracking-wide">Clean. Confident. Clientsmile.</p>
+        </div>
+
+        <!-- Image Grid Area -->
+        <div class="relative w-full max-w-5xl mx-auto mt-16">
+            
+            <!-- Main Central Image - Patient -->
+            <div class="relative z-10 w-full md:w-[65%] mx-auto aspect-[4/3] md:aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group">
+                 <img 
+                    src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop" 
+                    alt="Smiling Patient" 
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                
+                <!-- Floating "Trusted" Card -->
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md p-3 pr-6 rounded-2xl flex items-center gap-4 shadow-xl w-[90%] md:w-auto border border-white/50">
+                    <div class="flex -space-x-3">
+                        <img src="https://i.pravatar.cc/100?img=1" class="w-9 h-9 rounded-full border-2 border-white" alt="Avatar"/>
+                        <img src="https://i.pravatar.cc/100?img=5" class="w-9 h-9 rounded-full border-2 border-white" alt="Avatar"/>
+                        <img src="https://i.pravatar.cc/100?img=8" class="w-9 h-9 rounded-full border-2 border-white" alt="Avatar"/>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-xs font-bold text-gray-900">Trusted by 500+ Patients</p>
+                        <div class="flex text-yellow-500 gap-0.5 mt-0.5">
+                            <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                            <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                            <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                            <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                            <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left Image - Dentist Working -->
+            <div class="hidden md:block absolute top-12 -left-4 lg:left-0 w-64 h-80 rounded-3xl overflow-hidden border-4 border-white/10 hero-card-rotate-left shadow-lg opacity-90">
+                <img 
+                    src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop" 
+                    alt="Dentist Working" 
+                    class="w-full h-full object-cover"
+                />
+            </div>
+
+             <!-- Right Image - Tools/Hands -->
+             <div class="hidden md:block absolute top-12 -right-4 lg:right-0 w-64 h-80 rounded-3xl overflow-hidden border-4 border-white/10 hero-card-rotate-right shadow-lg opacity-90">
+                <img 
+                    src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1974&auto=format&fit=crop" 
+                    alt="Dental Tools" 
+                    class="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-brand-cream py-20 md:py-32" id="about">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        
+        <div class="flex flex-col items-center gap-2 mb-8">
+            <div class="flex gap-1 bg-green-100 px-3 py-1 rounded-full text-green-600">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <span class="text-xs font-bold text-gray-600">4.9/5 (1,259 Reviews)</span>
+        </div>
+
+        <h2 class="text-3xl md:text-5xl font-bold text-brand-darkBlue mb-4 max-w-3xl mx-auto leading-tight">
+            Smiluxe provides advanced dental care for confident, healthy smiles.
+        </h2>
+        <p class="text-gray-500 mb-16 max-w-2xl mx-auto text-lg">
+            Gentle, modern dental care for brighter, healthier smiles.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="bg-white p-8 rounded-3xl text-left shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-50">
+                <p class="text-sm font-bold text-brand-blue mb-6 uppercase tracking-wider">Patient Satisfaction</p>
+                <h3 class="text-5xl font-bold text-brand-blue mb-2">98%</h3>
+                <p class="text-gray-500 text-sm">Rated excellent for comfort and care.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl text-left shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-50">
+                <p class="text-sm font-bold text-brand-blue mb-6 uppercase tracking-wider">Smiles Treated</p>
+                <h3 class="text-5xl font-bold text-brand-blue mb-2">500+</h3>
+                <p class="text-gray-500 text-sm">Trusted for routine, cosmetic care.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl text-left shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-50">
+                <p class="text-sm font-bold text-brand-blue mb-6 uppercase tracking-wider">Experience</p>
+                <h3 class="text-5xl font-bold text-brand-blue mb-2">10+ Years</h3>
+                <p class="text-gray-500 text-sm">Professional care with lasting trust.</p>
+            </div>
+        </div>
+
+        <button class="bg-white border border-gray-200 text-brand-darkBlue px-8 py-3 rounded-full text-sm font-bold hover:bg-gray-50 transition-colors">
+            About us
+        </button>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-brand-mint py-20 md:py-28 relative" id="services">
+      <div class="max-w-7xl mx-auto px-4">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 relative z-10">
+            <div class="max-w-2xl">
+                <p class="text-xs font-bold tracking-widest text-gray-500 uppercase mb-4">WHAT OUR SERVICE</p>
+                <h2 class="text-3xl md:text-5xl font-bold text-brand-darkBlue mb-6 leading-tight">
+                    Explore Our Trusted Dental<br/> Service Options
+                </h2>
+                <p class="text-gray-600 max-w-lg">
+                    Explore our dental service offering expert care, advanced treatments, and personalized solutions for healthier, brighter smiles.
+                </p>
+            </div>
+            <button class="btn-primary mt-8 md:mt-0 px-6 py-3 rounded-full font-bold text-sm">
+                Book Appointment
+            </button>
+        </div>
+
+        <!-- Image Banner -->
+        <div class="w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-[-100px] md:mb-[-120px] relative z-0">
+             <img 
+                src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?q=80&w=2070&auto=format&fit=crop" 
+                alt="Dental Operation" 
+                class="w-full h-full object-cover brightness-[0.7]"
+            />
+        </div>
+
+        <!-- Cards -->
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-8 rounded-3xl shadow-xl flex flex-col h-full hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white mb-6">
+                    <i data-lucide="home" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-darkBlue mb-3">General Dentistry</h3>
+                <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                    Consistent dental care ensures a bright, clean, and healthy smile every single day.
+                </p>
+                <ul class="mt-auto space-y-3">
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Routine Cleaning</li>
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Cavity Treatment</li>
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Tooth Extractions</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl flex flex-col h-full hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white mb-6">
+                    <i data-lucide="sparkles" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-darkBlue mb-3">Cosmetic Dentistry</h3>
+                <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                    Transform your smile with safe, effective, and aesthetic dental treatments tailored for confidence.
+                </p>
+                <ul class="mt-auto space-y-3">
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Smile Enhancement</li>
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Teeth Whitening</li>
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Porcelain Veneers</li>
+                </ul>
+            </div>
+
+             <div class="bg-white p-8 rounded-3xl shadow-xl flex flex-col h-full hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white mb-6">
+                    <i data-lucide="badge-check" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-brand-darkBlue mb-3">Dental Implants</h3>
+                <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                    Strong, natural-looking replacements designed to restore smiles, confidence, and lasting oral health.
+                </p>
+                <ul class="mt-auto space-y-3">
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Single Tooth Implants</li>
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Full-Mouth Restorations</li>
+                    <li class="text-xs text-gray-600 flex items-center gap-2"><span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span> Implant Consultations</li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="bg-white py-20 md:py-32" id="team">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            
+            <p class="text-xs font-bold tracking-widest text-gray-500 uppercase mb-4">TEAM</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-darkBlue mb-4">
+                Meet Out Smiluxe Experts
+            </h2>
+            <p class="text-gray-500 mb-16 max-w-xl mx-auto">
+                Highly skilled, compassionate doctors delivering trusted dental care every day.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+                <!-- Dr 1 -->
+                <div class="flex flex-col items-center">
+                     <div class="relative mb-6 group cursor-pointer">
+                        <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-50 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Doctor" />
+                        </div>
+                     </div>
+                     <h4 class="text-lg font-bold text-brand-darkBlue mb-1">Dr. Vivian Lumley</h4>
+                     <p class="text-xs text-gray-500 uppercase font-medium">DDS, AAACD</p>
+                </div>
+                 <!-- Dr 2 -->
+                 <div class="flex flex-col items-center">
+                    <div class="relative mb-6 group cursor-pointer">
+                       <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-50 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                           <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Doctor" />
+                       </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-darkBlue mb-1">Dr. Grant Smalley</h4>
+                    <p class="text-xs text-gray-500 uppercase font-medium">DMD, ABDSM</p>
+               </div>
+                <!-- Dr 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="relative mb-6 group cursor-pointer">
+                       <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-50 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                           <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1964&auto=format&fit=crop" class="w-full h-full object-cover" alt="Doctor" />
+                       </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-darkBlue mb-1">Dr. Willow Camp</h4>
+                    <p class="text-xs text-gray-500 uppercase font-medium">DDS, FAGD</p>
+               </div>
+                <!-- Dr 4 -->
+                <div class="flex flex-col items-center">
+                    <div class="relative mb-6 group cursor-pointer">
+                       <div class="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-50 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                           <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Doctor" />
+                       </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-darkBlue mb-1">Dr. Howard Fishlock</h4>
+                    <p class="text-xs text-gray-500 uppercase font-medium">DMD, DABOI</p>
+               </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="bg-brand-pink py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            
+            <p class="text-xs font-bold tracking-widest text-gray-500 uppercase mb-4">TESTIMONIAL</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-brand-darkBlue mb-4">
+                What Our Patients Say
+            </h2>
+            <p class="text-gray-500 mb-16 max-w-xl mx-auto">
+                Hear directly from those who trust Smiluxe for their dental care.
+            </p>
+
+            <div class="relative flex items-center justify-center gap-6">
+                <!-- Data is handled by JS but mocked here for static view -->
+                <div class="w-full md:w-1/3 z-10 transition-all duration-300" id="testimonial-card">
+                    <div class="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl relative">
+                        <i data-lucide="quote" class="w-12 h-12 text-gray-100 absolute top-8 left-8 fill-current"></i>
+                        
+                        <div class="flex flex-col items-center relative z-10">
+                            <img 
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" 
+                                alt="User" 
+                                id="testimonial-img"
+                                class="w-16 h-16 rounded-full border-4 border-white shadow-md -mt-20 mb-4 bg-gray-200 object-cover"
+                            />
+                            
+                            <div class="flex gap-1 mb-2 text-green-500">
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                            </div>
+                            <span class="text-xs font-bold text-gray-500 mb-4">4.9/5 (1,259)</span>
+
+                            <h4 class="text-xl font-bold text-brand-darkBlue mb-4" id="testimonial-title">Smiling Brighter After Every Visit</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-8" id="testimonial-text">
+                                I used to fear the dentist, but Smiluxe changed that. Gentle care, friendly staff, and a clean clinic make every visit a great experience.
+                            </p>
+
+                            <div class="flex justify-between w-full items-end border-t pt-4">
+                                <span class="font-bold text-brand-darkBlue text-sm" id="testimonial-author">Nikola Jokić</span>
+                                <span class="text-gray-400 text-xs">Patient</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Dots/Arrows -->
+            <div class="flex justify-center gap-4 mt-12">
+                <button id="prev-testim" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-brand-blue shadow-sm hover:shadow-md transition-all">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="next-testim" class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-brand-blue shadow-sm hover:shadow-md transition-all">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-white py-20 md:py-32">
+        <div class="max-w-3xl mx-auto px-4">
+            
+            <p class="text-center text-xs font-bold tracking-widest text-gray-500 uppercase mb-4">FAQ</p>
+            <h2 class="text-center text-3xl md:text-5xl font-bold text-brand-darkBlue mb-4">
+                Frequently Asked Questions
+            </h2>
+            <p class="text-center text-gray-500 mb-16">
+                Find clear answers to common dental questions and Smiluxe trusted care services.
+            </p>
+
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left transition-colors bg-white hover:bg-gray-50">
+                        <span class="font-semibold text-brand-darkBlue text-sm md:text-base pr-4">How often should I visit the dentist?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 bg-brand-mint text-gray-600 text-sm leading-relaxed">
+                        We recommend visiting every 6 months for routine check-ups and cleanings to maintain optimal oral health.
+                    </div>
+                </div>
+                 <!-- FAQ Item 2 -->
+                 <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left transition-colors bg-white hover:bg-gray-50">
+                        <span class="font-semibold text-brand-darkBlue text-sm md:text-base pr-4">Do you accept insurance or offer payment plans?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 bg-brand-mint text-gray-600 text-sm leading-relaxed">
+                        Yes, we accept most major insurance plans and provide flexible financing options to ensure care is accessible for everyone.
+                    </div>
+                </div>
+                 <!-- FAQ Item 3 -->
+                 <div class="faq-item border border-gray-100 rounded-2xl overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 text-left transition-colors bg-white hover:bg-gray-50">
+                        <span class="font-semibold text-brand-darkBlue text-sm md:text-base pr-4">What should I do in a dental emergency?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 bg-brand-mint text-gray-600 text-sm leading-relaxed">
+                        Call us immediately. We reserve time daily for emergency appointments to address pain or trauma as quickly as possible.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still have questions box -->
+            <div class="mt-12 p-8 border border-gray-100 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h4 class="font-bold text-brand-darkBlue mb-2">Still have questions about your dental care?</h4>
+                    <p class="text-gray-500 text-xs md:text-sm max-w-lg">
+                        Our friendly, experienced team is here to help—ready to guide you with trusted, professional support every step of the way.
+                    </p>
+                </div>
+                <button class="text-brand-blue font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all whitespace-nowrap">
+                    Get in touch <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-cream pt-20 pb-10">
+        
+        <!-- Blue CTA Box -->
+        <div class="max-w-7xl mx-auto px-4 mb-20">
+            <div class="bg-brand-blue rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500 to-brand-blue opacity-50 z-0"></div>
+                <div class="absolute -top-24 -left-24 w-64 h-64 bg-blue-400 rounded-full blur-[100px] opacity-30"></div>
+                <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-purple-500 rounded-full blur-[100px] opacity-30"></div>
+
+                <div class="relative z-10">
+                     <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-4 py-1.5 rounded-full text-[10px] font-semibold mb-8 backdrop-blur-sm uppercase tracking-wider">
+                        <i data-lucide="shield-check" class="w-3 h-3 text-brand-lime"></i>
+                        12 Slots Available Today
+                    </div>
+                    
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Schedule Your Appointment</h2>
+                    <p class="text-blue-200 mb-10 max-w-lg mx-auto text-sm">
+                        Book your dental visit today for personalized, gentle care at your convenience.
+                    </p>
+                    
+                    <button class="btn-primary px-8 py-3.5 rounded-full font-bold text-sm shadow-lg">
+                        Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-gray-200 pb-12">
+            <div class="md:col-span-4">
+                 <div class="flex items-center gap-2 mb-6">
+                    <div class="bg-brand-blue text-white p-1 rounded-full">
+                        <i data-lucide="smile" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-bold text-brand-darkBlue tracking-tight">Smiluxe</span>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-xs mb-12">
+                    Smiluxe Dental Clinic provides modern, gentle dental care focused on comfort, cleanliness, and creating healthy, confident smiles.
+                </p>
+                <div class="flex gap-4 text-gray-600">
+                    <a href="#" class="p-2 border border-gray-200 rounded-full hover:bg-brand-blue hover:text-white transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                    <a href="#" class="p-2 border border-gray-200 rounded-full hover:bg-brand-blue hover:text-white transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                    <a href="#" class="p-2 border border-gray-200 rounded-full hover:bg-brand-blue hover:text-white transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="md:col-span-2">
+                    <p class="text-xs text-gray-400 mb-4 uppercase tracking-widest">Subscribe Our Newsletter</p>
+                    <div class="flex gap-2 max-w-md">
+                        <input type="email" placeholder="Enter your email" class="flex-1 bg-white border border-gray-200 rounded-full px-6 py-3 text-sm focus:outline-none focus:border-brand-blue"/>
+                        <button class="bg-white border border-gray-200 text-brand-blue px-6 py-3 rounded-full text-sm font-bold hover:bg-gray-50 flex items-center gap-2">
+                            Subscribe <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                     <p class="text-xs text-gray-400 mb-6 uppercase tracking-widest">Navigation</p>
+                     <div class="flex flex-wrap gap-x-6 gap-y-3 font-medium text-sm text-brand-darkBlue">
+                        <a href="#" class="hover:text-brand-blue">Home</a>
+                        <a href="#about" class="hover:text-brand-blue">About Us</a>
+                        <a href="#service" class="hover:text-brand-blue">Service</a>
+                        <a href="#pricing" class="hover:text-brand-blue">Pricing</a>
+                     </div>
+                </div>
+                 <div>
+                     <p class="text-xs text-gray-400 mb-2 uppercase tracking-widest">Contact</p>
+                     <p class="text-sm font-bold text-brand-darkBlue mb-4">clensmile@gmail.com</p>
+                     <p class="text-sm font-bold text-brand-darkBlue">+1 322 532 623</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 pt-8 flex justify-between items-center text-xs text-gray-400">
+            <p>Copyright SmileCo 2025</p>
+            <p>vektora studio.2025</p>
+        </div>
+
+    </footer>
+
+    <!-- Place holder to prevent React mounting error if present -->
+    <div id="root" style="display:none;"></div>
+    
+    <script src="script.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
